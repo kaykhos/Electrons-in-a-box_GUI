@@ -19,7 +19,7 @@ Object:     Select geometric shape to put electrons on
 
 Dim:       Set the number of dimensions of the geometric shape
 
-L,W,H:     Defines length, width, height (or Radius) of geometric shape)
+L,W,H:     Defines length, width, height (or Radius) of geometric shape
 
 #e:         Total number of electrons in the simulation
 
