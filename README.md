@@ -7,17 +7,17 @@ Solves for the electron distribution on different highly symmetric shapes, in 1,
 
 Run Controler.m, all other files are aux functions/scripts. 
 ## GUI options:
-|Continue:|   Keep results from previous propagation step|
-|Plot:|       Plot solution as it's solving or now (uncheck for speed)|
-|Stop: |      Stop current simulation (keep solution up until that point)|
-|Start: |     Begin running the ODE solver|
-|Object:|     Select geometric shape to put electrons on|
-|Dim: |       Set the number of dimensions of the geometric shape|
-|L,W,H: |     Defines length, width, height (or Radius) of geometric shape)|
-|#e:   |      Total number of electrons in the simulation|
-|Steps: |     Number of time steps to run the time propagation for|
-|/beta: |     Dimensionless parameter that defines the energy damping rate (increase for more damping decrease for less damping)|
-|dt:  |       Time step for solver propagation|
+Continue:   Keep results from previous propagation step
+Plot:       Plot solution as it's solving or now (uncheck for speed)
+Stop:      Stop current simulation (keep solution up until that point)
+Start:      Begin running the ODE solver
+Object:     Select geometric shape to put electrons on
+Dim:       Set the number of dimensions of the geometric shape
+L,W,H:     Defines length, width, height (or Radius) of geometric shape)
+#e:         Total number of electrons in the simulation
+Steps:      Number of time steps to run the time propagation for
+/beta:      Dimensionless parameter that defines the energy damping rate (increase for more damping decrease for less damping)
+dt:         Time step for solver propagation
 
 ## Important variables: 
 rMat:       Current location of each electron
