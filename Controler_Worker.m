@@ -12,11 +12,6 @@ if shape == 1 % Means the shape is a cube
     h = str2num(get(hIn, 'string')); % set height
     l = str2num(get(lIn, 'string')); % set length
     Box = [-l/2,l/2,-w/2,w/2,-h/2,h/2]*1e-0; % dimentions of the box bounding the particles, same set up as 'axis'
-    % use this paramartisation for plotting
-    xP = [Box(1), Box(1), Box(2), Box(2), Box(1), Box(1), Box(1), Box(2), Box(2), Box(1), Box(2), Box(2), Box(2), Box(2), Box(1), Box(1)];
-    yP = [Box(3), Box(4), Box(4), Box(3), Box(3), Box(3), Box(4), Box(4), Box(3), Box(3), Box(3), Box(3), Box(4), Box(4), Box(4), Box(4)];
-    zP = [Box(5), Box(5), Box(5), Box(5), Box(5), Box(6), Box(6), Box(6), Box(6), Box(6), Box(6), Box(5), Box(5), Box(6), Box(6), Box(5)];
-
 elseif shape == 2
     shape = 'S';
     R = str2num(get(lIn, 'string')); % set radius
@@ -27,6 +22,10 @@ elseif shape == 3
 end
 
 
+% use this paramartisation for plotting
+xP = [Box(1), Box(1), Box(2), Box(2), Box(1), Box(1), Box(1), Box(2), Box(2), Box(1), Box(2), Box(2), Box(2), Box(2), Box(1), Box(1)];
+yP = [Box(3), Box(4), Box(4), Box(3), Box(3), Box(3), Box(4), Box(4), Box(3), Box(3), Box(3), Box(3), Box(4), Box(4), Box(4), Box(4)];
+zP = [Box(5), Box(5), Box(5), Box(5), Box(5), Box(6), Box(6), Box(6), Box(6), Box(6), Box(6), Box(5), Box(5), Box(6), Box(6), Box(5)];
 
 if get(ContinueIn, 'value') == 0
     if shape == 'C' % if this is a cube, 
@@ -85,7 +84,7 @@ for jj = 1:Steps % for each step
     % find euclidian distance between each electron, Set the diagonals to
     % one so we dont devide be zero in the next step. (it will cancal out later)
     rNM = sqrt(dx.^2 + dy.^2 + dz.^2)+ eye(length(dx(:,1))); 
-    fMat = qe^2./rNM.^2/4/pi/epsilon0; % find force between each electron
+    fMat = qe^2./rNM/4/pi/epsilon0; % find force between each electron
     rNew = zeros(NumElectron, 3); % initilze the new position matrix
     vNew = zeros(NumElectron, 3); % initilze the new velocity matrix
     for pp = 1:NumElectron % for each electron

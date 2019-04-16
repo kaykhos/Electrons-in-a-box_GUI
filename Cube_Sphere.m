@@ -1,12 +1,12 @@
-load phys; 
-NumElectron =150; % number of electron in simulation ON EACH OBJECT
+clear all; load phys; 
+NumElectron =200; % number of electron in simulation ON EACH OBJECT
 Dim = 3; % Number of spatial dimentions used - to work in fewer dimentions, Box symeteric about zero
-Steps = 8000; % number of steps to propogate simulation for
-dt = .15e-4; % time step used in finite element method
-R = 1/2*1e-0; % Radius of sphere
-Box2 = [-1,1,-1,1,-1,1]/2*1e-0;% dimentions of the box two bounding the particles, same set up as 'axis'
-Beta = 1e4; % include a damping term to take energy out of the system to converge to a steady state system first. 
-Distance = [2,0,0]*1e-0; % distance the vector (center to center) cubes are appart (in x,y,z)
+Steps = 10000; % number of steps to propogate simulation for
+dt = 1e-4; % time step used in finite element method
+R = 1*1e-0; % Radius of sphere
+Box2 = [-1,1,-1,1,-1,1]*1e-0;% dimentions of the box two bounding the particles, same set up as 'axis'
+Beta = 1e2; % include a damping term to take energy out of the system to converge to a steady state system first. 
+Distance = [3,0,0]*1e-0; % distance the vector (center to center) cubes are appart (in x,y,z)
 Box2 = Box2 + [Distance(1), Distance(1), Distance(2), Distance(2), Distance(3), Distance(3)];
 
 Temp1 = linspace(0,2*pi,15);
@@ -108,16 +108,16 @@ for jj = 1:Steps
         
     KE(jj) = sum(sum(([vMat1; vMat2]').^2))*me/2;
 
-%     cla
-%     %subplot(2,1,1);
-%     hold on; plot3(xP2, yP2, zP2, 'k'); %mesh(xP1,yP1,zP1, 'facecolor', 'none'); colormap([0,0,0]); 
-%      hold on
-%     
-%     xlabel([num2str(jj/Steps), '%']);
-%     %subplot(2,1,2);plot(KE);
-%     pause(0.01)
-%     
+    cla
+    %subplot(2,1,1);
+    hold on; plot3(xP2, yP2, zP2, 'k'); mesh(xP1,yP1,zP1, 'facecolor', 'none'); colormap([0,0,0]); 
+    plot3(rMat(:,1), rMat(:,2), rMat(:,3), 'd'); axis equal; box off; axis off; hold on
+    
+    xlabel([num2str(jj/Steps), '%']);
+    %subplot(2,1,2);plot(KE);
+    pause(0.01)
+    
 end
 toc
-clf
-plot3(rMat(:,1), rMat(:,2), rMat(:,3), 'd'); axis equal; box off; axis off;
+
+
