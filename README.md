@@ -32,3 +32,4 @@ dt:         Time step for solver propagation
 ## Important variables: 
 rMat:       Current location of each electron
 vMat:       Current velocity of each electon
+testing here 
